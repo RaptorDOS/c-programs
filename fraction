@@ -1,0 +1,32 @@
+#include<stdio.h>
+int nsum=0,dsum=1,n;
+struct fract
+{
+ int num;
+ int deno;
+};
+void input(struct fract a[])
+{
+ for(int i=0;i<n;i++)
+  { 
+    printf("Enter the numerator amd demominator");
+    scanf("%d%d",&a[i].num,&a[i].deno);
+  }
+}
+void sum(struct fract a[])
+{for(int i=0;i<n;i++)
+ {
+  nsum=(nsum*a[i].deno)+(a[i].num*dsum);
+  dsum=dsum*a[i].deno;
+ }
+}
+
+void main()
+{
+  printf("Enter the no of fractions");
+  scanf("%d",&n);
+  struct fract a[n];
+  input(a);
+  sum(a);
+  printf("%d / %d",nsum,dsum);
+}
